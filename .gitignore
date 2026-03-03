@@ -1,0 +1,33 @@
+# Secrets and local env files
+.env
+.env.*
+!.env.example
+
+# Dependency and build directories
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+tmp/
+.tmp/
+
+# Logs and debug artifacts
+*.log
+npm-debug.log*
+yarn-*.log
+pnpm-debug.log*
+
+# Editor and OS artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Backup and patch leftovers
+*.bak
+*.old
+*.orig

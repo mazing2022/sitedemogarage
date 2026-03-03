@@ -2,7 +2,6 @@ const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const yearNode = document.getElementById("year");
-const hero = document.getElementById("hero");
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -191,24 +190,3 @@ if (bookingForm && formNote) {
     bookingForm.reset();
   });
 }
-
-let ticking = false;
-const handleParallax = () => {
-  if (!hero) return;
-  const offset = Math.min(window.scrollY * 0.18, 80);
-  hero.style.setProperty("--hero-shift", `${offset}px`);
-  ticking = false;
-};
-
-window.addEventListener(
-  "scroll",
-  () => {
-    if (!ticking) {
-      requestAnimationFrame(handleParallax);
-      ticking = true;
-    }
-  },
-  { passive: true }
-);
-
-handleParallax();

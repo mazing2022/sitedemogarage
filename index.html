@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TONGARAGE - Entretien, réparation et performance automobile avec expertise multi-marques, transparence et rapidité.">
+  <meta name="description" content="TONGARAGE - Entretien, réparation et expertise automobile multi-marques, transparence et rapidité.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' https://images.unsplash.com data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; upgrade-insecure-requests">
   <title>TONGARAGE | Garage Automobile Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,7 +168,7 @@
     <section class="section about" id="apropos">
       <div class="container about-grid">
         <div class="about-image reveal">
-          <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80" alt="Atelier automobile moderne et propre">
+          <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80" alt="Atelier automobile moderne et propre" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         </div>
         <div class="about-content reveal">
           <p class="kicker">À propos de TONGARAGE</p>
@@ -386,11 +388,11 @@
           </div>
           <div class="contact-actions">
             <a href="tel:+33184004590" class="btn btn-accent">Appeler maintenant</a>
-            <a href="https://maps.google.com/?q=28+Avenue+du+Moteur+75015+Paris" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+            <a href="https://maps.google.com/?q=28+Avenue+du+Moteur+75015+Paris" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Itinéraire</a>
           </div>
         </div>
         <div class="contact-map reveal">
-          <iframe title="Carte de localisation de TONGARAGE" loading="lazy" src="https://www.google.com/maps?q=48.8387,2.2842&z=14&output=embed"></iframe>
+          <iframe title="Carte de localisation de TONGARAGE" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/maps?q=48.8387,2.2842&z=14&output=embed"></iframe>
         </div>
       </div>
     </section>
