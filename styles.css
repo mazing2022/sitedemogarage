@@ -20,6 +20,11 @@
   --radius: 16px;
   --container: 1220px;
   --header-h: 84px;
+  --hero-bg-image: url("public/images/garage-hero-bg.webp");
+  --section-bg-avantages: url("public/images/garage-section-avantages.webp");
+  --section-bg-chiffres: url("public/images/garage-section-chiffres.webp");
+  --section-bg-temoignages: url("public/images/garage-section-temoignages.webp");
+  --section-bg-contact: var(--hero-bg-image);
 }
 
 *,
@@ -287,7 +292,14 @@ p {
   padding-bottom: 5.2rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(125deg, #0e141c 0%, #141d28 48%, #0f151d 100%);
+  background-color: #0d131b;
+  background-image:
+    linear-gradient(128deg, rgba(7, 10, 14, 0.5) 0%, rgba(8, 12, 17, 0.3) 44%, rgba(7, 10, 14, 0.52) 100%),
+    var(--hero-bg-image),
+    linear-gradient(125deg, #0e141c 0%, #141d28 48%, #0f151d 100%);
+  background-position: center, center 42%, center;
+  background-repeat: no-repeat;
+  background-size: auto, cover, cover;
 }
 
 .hero::before {
@@ -295,11 +307,11 @@ p {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(950px 540px at 15% -12%, rgba(128, 154, 174, 0.35), transparent 72%),
-    radial-gradient(780px 540px at 86% 16%, rgba(137, 47, 59, 0.3), transparent 74%),
-    repeating-linear-gradient(90deg, transparent 0 64px, rgba(220, 228, 235, 0.07) 64px 65px),
-    repeating-linear-gradient(0deg, transparent 0 64px, rgba(220, 228, 235, 0.05) 64px 65px);
-  opacity: 0.52;
+    radial-gradient(1180px 560px at 16% -12%, rgba(132, 158, 178, 0.26), transparent 70%),
+    radial-gradient(920px 520px at 88% 20%, rgba(110, 31, 43, 0.22), transparent 72%),
+    linear-gradient(112deg, rgba(224, 233, 240, 0.08) 5%, rgba(224, 233, 240, 0) 36%, rgba(224, 233, 240, 0) 66%, rgba(224, 233, 240, 0.06) 95%),
+    repeating-linear-gradient(90deg, transparent 0 74px, rgba(220, 228, 235, 0.05) 74px 75px);
+  opacity: 0.62;
   z-index: 0;
 }
 
@@ -307,8 +319,9 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(10, 14, 19, 0.7), rgba(10, 14, 19, 0.2)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 15%, transparent 85%, rgba(255, 255, 255, 0.03));
+    linear-gradient(104deg, rgba(5, 8, 12, 0.9) 0%, rgba(7, 11, 16, 0.7) 44%, rgba(6, 9, 14, 0.84) 100%),
+    radial-gradient(120% 80% at 50% 0%, rgba(136, 161, 182, 0.18), rgba(136, 161, 182, 0) 62%),
+    radial-gradient(120% 120% at 50% 100%, rgba(3, 5, 8, 0.66), rgba(3, 5, 8, 0) 60%);
   z-index: 0;
   pointer-events: none;
 }
@@ -316,10 +329,10 @@ p {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  align-items: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: clamp(430px, 68svh, 760px);
 }
 
 .hero-content {
@@ -328,11 +341,11 @@ p {
     linear-gradient(160deg, rgba(249, 251, 253, 0.92), rgba(226, 233, 239, 0.84));
   border: 1px solid rgba(37, 47, 58, 0.26);
   clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-  padding: clamp(1.2rem, 2.5vw, 2rem);
+  padding: clamp(1rem, 2vw, 1.55rem);
   box-shadow: 0 26px 56px rgba(4, 7, 11, 0.42);
   display: flex;
   flex-direction: column;
-  max-width: 980px;
+  width: min(100%, 1100px);
 }
 
 .hero-content .kicker {
@@ -340,13 +353,13 @@ p {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.1rem, 5.2vw, 4.25rem);
-  max-width: 13ch;
+  font-size: clamp(2rem, 4.8vw, 3.7rem);
+  max-width: 17ch;
   letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   max-width: 58ch;
   color: #354250;
   font-size: clamp(0.98rem, 1.8vw, 1.12rem);
@@ -356,21 +369,21 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.6rem;
+  margin-top: 1.15rem;
 }
 
 .hero-stats {
   margin-top: auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.72rem;
-  padding-top: 1.35rem;
+  padding-top: 1rem;
 }
 
 .hero-stats article {
   border: 1px solid rgba(16, 23, 31, 0.18);
   background: rgba(255, 255, 255, 0.6);
-  padding: 0.72rem;
+  padding: 0.65rem 0.7rem;
   position: relative;
 }
 
@@ -463,9 +476,63 @@ p {
 #chiffres,
 #temoignages,
 #contact {
-  background:
-    linear-gradient(180deg, #131a22 0%, #10171f 100%);
+  --section-bg-image: none;
+  --section-bg-position: center center;
+  --section-overlay:
+    linear-gradient(148deg, rgba(7, 11, 17, 0.78) 0%, rgba(8, 14, 21, 0.5) 45%, rgba(6, 10, 16, 0.74) 100%),
+    radial-gradient(110% 90% at 50% 0%, rgba(86, 124, 158, 0.34), rgba(86, 124, 158, 0) 58%),
+    radial-gradient(130% 120% at 50% 100%, rgba(5, 9, 14, 0.68), rgba(5, 9, 14, 0.12) 58%, rgba(5, 9, 14, 0) 78%);
+  background: linear-gradient(180deg, #131a22 0%, #10171f 100%);
   color: var(--text);
+  overflow: hidden;
+}
+
+#avantages::before,
+#chiffres::before,
+#temoignages::before,
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    var(--section-overlay),
+    var(--section-bg-image);
+  background-size: cover, cover;
+  background-position: center, var(--section-bg-position);
+  background-repeat: no-repeat;
+  filter: saturate(1.05) contrast(1.08) brightness(0.92);
+  transform: scale(1.02);
+  transform-origin: center;
+}
+
+#avantages > .container,
+#chiffres > .container,
+#temoignages > .container,
+#contact > .container {
+  position: relative;
+  z-index: 1;
+}
+
+#avantages {
+  --section-bg-image: var(--section-bg-avantages);
+  --section-bg-position: center 46%;
+}
+
+#chiffres {
+  --section-bg-image: var(--section-bg-chiffres);
+  --section-bg-position: center 56%;
+}
+
+#temoignages {
+  --section-bg-image: var(--section-bg-temoignages);
+  --section-bg-position: center 35%;
+}
+
+#contact {
+  --section-bg-image: var(--section-bg-contact);
+  --section-bg-position: center 54%;
 }
 
 #avantages .section-head p,
@@ -1146,6 +1213,10 @@ p {
   .metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -1160,6 +1231,28 @@ p {
   .hero {
     padding-top: calc(var(--header-h) + 1.5rem);
     min-height: auto;
+    background-position: center, 62% 46%, center;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  #avantages {
+    --section-bg-position: 58% 50%;
+  }
+
+  #chiffres {
+    --section-bg-position: 58% 58%;
+  }
+
+  #temoignages {
+    --section-bg-position: 65% 38%;
+  }
+
+  #contact {
+    --section-bg-position: 62% 54%;
   }
 
   .hero-stats {

@@ -9,12 +9,32 @@ if (yearNode) {
 }
 
 if (menuToggle && mainNav) {
+  const setMenuOpen = (isOpen) => {
+    mainNav.classList.toggle("open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  setMenuOpen(false);
+
   menuToggle.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
+    setMenuOpen(!mainNav.classList.contains("open"));
   });
 
   mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => mainNav.classList.remove("open"));
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mainNav.classList.contains("open")) return;
+    if (menuToggle.contains(event.target)) return;
+    if (mainNav.contains(event.target)) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
   });
 }
 
